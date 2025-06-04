@@ -456,12 +456,22 @@
             font-size: 1.25rem;
             margin-bottom: 0.5rem;
         }
+        
+        /* Nuevos estilos para los botones */
+        button#show-monomode, button#show-multimode {
+            border: 2px solid transparent;
+            transition: border-color 0.5s ease;
+        }
+        
+        button#show-monomode.selected, button#show-multimode.selected {
+            border-color: rgba(255, 255, 255, 0.8);
+        }
     </style>
 </head>
 <body class="relative">
     <!-- Author Credits -->
-        <div class="container mx-auto flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-6">
-        </div>
+    <div class="container mx-auto flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-6">
+    </div>
 
     <!-- Ocean waves decoration -->
     <div class="fixed bottom-0 left-0 w-full h-40 z-0">
@@ -603,7 +613,7 @@
                     </script>
                     
                     <div class="flex justify-center mb-6 space-x-4">
-                        <button id="show-monomode" class="px-6 py-2 bg-cyan-600 rounded-full font-medium hover:bg-cyan-500 transition">
+                        <button id="show-monomode" class="px-6 py-2 bg-cyan-600 rounded-full font-medium hover:bg-cyan-500 transition selected">
                             Fibra Monomodo
                         </button>
                         <button id="show-multimode" class="px-6 py-2 bg-purple-600 rounded-full font-medium hover:bg-purple-500 transition pulse-purple-strong">
@@ -809,7 +819,7 @@
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-circle text-blue-400 mt-1 mr-2 text-xs"></i>
-                                <span>Pérdidas: &lt; 0.3 dB</span>
+                                <span>Pérdidas: < 0.3 dB</span>
                             </li>
                         </ul>
                         <div class="mt-4 pt-4 border-t border-cyan-800">
@@ -844,7 +854,7 @@
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-circle text-purple-400 mt-1 mr-2 text-xs"></i>
-                                <span>Pérdidas: &lt; 0.2 dB</span>
+                                <span>Pérdidas: < 0.2 dB</span>
                             </li>
                         </ul>
                         <div class="mt-4 pt-4 border-t border-purple-800">
@@ -879,7 +889,7 @@
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-circle text-amber-400 mt-1 mr-2 text-xs"></i>
-                                <span>Pérdidas: &lt; 0.3 dB</span>
+                                <span>Pérdidas: < 0.3 dB</span>
                             </li>
                         </ul>
                         <div class="mt-4 pt-4 border-t border-amber-800">
@@ -914,7 +924,7 @@
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-circle text-emerald-400 mt-1 mr-2 text-xs"></i>
-                                <span>Pérdidas: &lt; 0.4 dB</span>
+                                <span>Pérdidas: < 0.4 dB</span>
                             </li>
                         </ul>
                         <div class="mt-4 pt-4 border-t border-emerald-800">
@@ -964,7 +974,7 @@
     </section>
 
     <!-- Submarine Cables Section -->
-    <section id="submarine" class="section bg-gradient-to-b from-ocean-shallow to-cyan-900">
+    <section id="submarine" class="section bg-gradient-to-b from-ocean-shallow to-blue-900">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-5xl font-bold mb-4 tech-font">Cables Submarinos: La Columna Vertebral de Internet</h2>
@@ -1028,181 +1038,181 @@
         </div>
     </section>
 
-    <!-- Country Connections Section -->
-<section id="countries" class="section bg-gradient-to-b from-blue-900 to-indigo-900">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-5xl font-bold mb-4 tech-font">Conexiones en América Latina</h2>
-            <p class="max-w-3xl mx-auto text-cyan-100">Principales cables submarinos que conectan la región</p>
-            <div class="w-24 h-1 bg-cyan-400 mx-auto mt-4"></div>
-        </div>
-        
-        <!-- Venezuela -->
-        <div class="mb-16">
-            <h3 class="text-2xl font-semibold mb-6 flex items-center text-cyan-200">
-                <img src="https://flagcdn.com/w40/ve.png" class="mr-3 w-8"> Venezuela
-            </h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="futuristic-card p-5">
-                    <h4 class="font-bold text-lg mb-2">ALBA-1</h4>
-                    <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 1,860 km</p>
-                    <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Telecom Venezuela, Transbit (Cuba)</p>
-                    <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Alcatel Submarine Networks (ASN)</p>
-                    <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> Cuba, Jamaica</p>
-                    <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> La Guaira</p>
+    <!-- Country AussiConnections Section -->
+    <section id="countries" class="section bg-gradient-to-b from-blue-900 to-indigo-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 tech-font">Conexiones en América Latina</h2>
+                <p class="max-w-3xl mx-auto text-cyan-100">Principales cables submarinos que conectan la región</p>
+                <div class="w-24 h-1 bg-cyan-400 mx-auto mt-4"></div>
+            </div>
+            
+            <!-- Venezuela -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold mb-6 flex items-center text-cyan-200">
+                    <img src="https://flagcdn.com/w40/ve.png" class="mr-3 w-8"> Venezuela
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">ALBA-1</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 1,860 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Telecom Venezuela, Transbit (Cuba)</p>
+                        <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Alcatel Submarine Networks (ASN)</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> Cuba, Jamaica</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> La Guaira</p>
+                    </div>
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">ARCOS-1</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 8,400 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Columbus Networks y otros operadores regionales</p>
+                        <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> SubCom</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU., México, Caribe</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Punto Fijo</p>
+                    </div>
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">Atlántica-1 / GlobeNet</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 23,500 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> GlobeNet (subsidiaria de BTG Pactual)</p>
+                        <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Alcatel Submarine Networks (ASN)</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU., Brasil, Colombia</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Maiquetía</p>
+                    </div>
                 </div>
-                <div class="futuristic-card p-5">
-                    <h4 class="font-bold text-lg mb-2">ARCOS-1</h4>
-                    <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 8,400 km</p>
-                    <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Columbus Networks y otros operadores regionales</p>
-                    <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> SubCom</p>
-                    <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU., México, Caribe</p>
-                    <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Punto Fijo</p>
+            </div>
+            
+            <!-- Colombia -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold mb-6 flex items-center text-cyan-200">
+                    <img src="https://flagcdn.com/w40/co.png" class="mr-3 w-8"> Colombia
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">SAm-1</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 25,000 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Telefónica, TE Connectivity</p>
+                        <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Alcatel Submarine Networks (ASN)</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU., Brasil, Chile</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Barranquilla</p>
+                    </div>
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">AMX-1</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 17,800 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> América Móvil</p>
+                        <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Alcatel Submarine Networks (ASN)</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU., México, Brasil</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Barranquilla, Cartagena</p>
+                    </div>
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">TAM-1 (2025)</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 7,000 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Trans Americas Fiber System</p>
+                        <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Xtera, Nexans, IT International Telecom</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU., Caribe, Centroamérica</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Barranquilla</p>
+                    </div>
                 </div>
-                <div class="futuristic-card p-5">
-                    <h4 class="font-bold text-lg mb-2">Atlántica-1 / GlobeNet</h4>
-                    <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 23,500 km</p>
-                    <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> GlobeNet (subsidiaria de BTG Pactual)</p>
-                    <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Alcatel Submarine Networks (ASN)</p>
-                    <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU., Brasil, Colombia</p>
-                    <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Maiquetía</p>
+            </div>
+            
+            <!-- Brazil -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold mb-6 flex items-center text-cyan-200">
+                    <img src="https://flagcdn.com/w40/br.png" class="mr-3 w-8"> Brasil
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">Seabras-1</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 10,800 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Seaborn Networks, Telecom Italia Sparkle</p>
+                        <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Alcatel Submarine Networks (ASN)</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU.</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Praia Grande</p>
+                    </div>
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">BRUSA</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 11,000 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Telxius</p>
+                        <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Alcatel Submarine Networks (ASN)</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU., Puerto Rico</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Fortaleza, Río de Janeiro</p>
+                    </div>
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">SAIL</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 10,800 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Seaborn Networks, Telecom Italia Sparkle</p>
+                        <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> HMN Tech</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> Camerún</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Praia Grande</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Guyana -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold mb-6 flex items-center text-cyan-200">
+                    <img src="https://flagcdn.com/w40/gy.png" class="mr-3 w-8"> Guyana
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">SG-SCS</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 1,200 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> GT&T (Guyana), Telesur (Surinam)</p>
+                        <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Huawei Marine Networks</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> Surinam, Trinidad</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Georgetown</p>
+                    </div>
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">Deep Blue One</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 2,100 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Digicel Group, Orange</p>
+                        <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Orange Marine</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> Surinam, Guayana Francesa, Trinidad y Tobago</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Guyana</p>
+                    </div>
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">X-Link</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 775 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> E-Networks Inc. (Guyana)</p>
+                        <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> No especificado</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> Barbados</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Georgetown</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Trinidad y Tobago -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold mb-6 flex items-center text-cyan-200">
+                    <img src="https://flagcdn.com/w40/tt.png" class="mr-3 w-8"> Trinidad y Tobago
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">EC-1 (Eastern Link Cable)</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 987 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Liberty Latin America (formerly C&W)</p>
+                        <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> TE SubCom</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> Curaçao</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Chaguaramas</p>
+                    </div>
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">ECFS (Eastern Caribbean Fibre System)</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 1,730 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Cable & Wireless</p>
+                        <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Xtera Communications</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> Múltiples islas del Caribe</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Trinidad</p>
+                    </div>
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">TT-1 (Trinidad-Tobago Submarine Cable)</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 48 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Alliance Telecommunications, Liberty Latin America (LLA), TSTT</p>
+                        <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> No especificado</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> Cable doméstico entre Trinidad y Tobago</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Trinidad, Tobago</p>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Colombia -->
-        <div class="mb-16">
-            <h3 class="text-2xl font-semibold mb-6 flex items-center text-cyan-200">
-                <img src="https://flagcdn.com/w40/co.png" class="mr-3 w-8"> Colombia
-            </h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="futuristic-card p-5">
-                    <h4 class="font-bold text-lg mb-2">SAm-1</h4>
-                    <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 25,000 km</p>
-                    <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Telefónica, TE Connectivity</p>
-                    <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Alcatel Submarine Networks (ASN)</p>
-                    <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU., Brasil, Chile</p>
-                    <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Barranquilla</p>
-                </div>
-                <div class="futuristic-card p-5">
-                    <h4 class="font-bold text-lg mb-2">AMX-1</h4>
-                    <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 17,800 km</p>
-                    <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> América Móvil</p>
-                    <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Alcatel Submarine Networks (ASN)</p>
-                    <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU., México, Brasil</p>
-                    <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Barranquilla, Cartagena</p>
-                </div>
-                <div class="futuristic-card p-5">
-                    <h4 class="font-bold text-lg mb-2">TAM-1 (2025)</h4>
-                    <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 7,000 km</p>
-                    <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Trans Americas Fiber System</p>
-                    <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Xtera, Nexans, IT International Telecom</p>
-                    <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU., Caribe, Centroamérica</p>
-                    <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Barranquilla</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Brazil -->
-        <div class="mb-16">
-            <h3 class="text-2xl font-semibold mb-6 flex items-center text-cyan-200">
-                <img src="https://flagcdn.com/w40/br.png" class="mr-3 w-8"> Brasil
-            </h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="futuristic-card p-5">
-                    <h4 class="font-bold text-lg mb-2">Seabras-1</h4>
-                    <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 10,800 km</p>
-                    <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Seaborn Networks, Telecom Italia Sparkle</p>
-                    <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Alcatel Submarine Networks (ASN)</p>
-                    <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU.</p>
-                    <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Praia Grande</p>
-                </div>
-                <div class="futuristic-card p-5">
-                    <h4 class="font-bold text-lg mb-2">BRUSA</h4>
-                    <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 11,000 km</p>
-                    <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Telxius</p>
-                    <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Alcatel Submarine Networks (ASN)</p>
-                    <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU., Puerto Rico</p>
-                    <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Fortaleza, Río de Janeiro</p>
-                </div>
-                <div class="futuristic-card p-5">
-                    <h4 class="font-bold text-lg mb-2">SAIL</h4>
-                    <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 10,800 km</p>
-                    <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Seaborn Networks, Telecom Italia Sparkle</p>
-                    <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> HMN Tech</p>
-                    <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> Camerún</p>
-                    <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Praia Grande</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Guyana -->
-        <div class="mb-16">
-            <h3 class="text-2xl font-semibold mb-6 flex items-center text-cyan-200">
-                <img src="https://flagcdn.com/w40/gy.png" class="mr-3 w-8"> Guyana
-            </h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="futuristic-card p-5">
-                    <h4 class="font-bold text-lg mb-2">SG-SCS</h4>
-                    <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 1,200 km</p>
-                    <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> GT&T (Guyana), Telesur (Surinam)</p>
-                    <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Huawei Marine Networks</p>
-                    <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> Surinam, Trinidad</p>
-                    <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Georgetown</p>
-                </div>
-                <div class="futuristic-card p-5">
-                    <h4 class="font-bold text-lg mb-2">Deep Blue One</h4>
-                    <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 2,100 km</p>
-                    <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Digicel Group, Orange</p>
-                    <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Orange Marine</p>
-                    <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> Surinam, Guayana Francesa, Trinidad y Tobago</p>
-                    <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Guyana</p>
-                </div>
-                <div class="futuristic-card p-5">
-                    <h4 class="font-bold text-lg mb-2">X-Link</h4>
-                    <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 775 km</p>
-                    <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> E-Networks Inc. (Guyana)</p>
-                    <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> No especificado</p>
-                    <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> Barbados</p>
-                    <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Georgetown</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Trinidad y Tobago -->
-        <div class="mb-16">
-            <h3 class="text-2xl font-semibold mb-6 flex items-center text-cyan-200">
-                <img src="https://flagcdn.com/w40/tt.png" class="mr-3 w-8"> Trinidad y Tobago
-            </h3>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="futuristic-card p-5">
-                    <h4 class="font-bold text-lg mb-2">EC-1 (Eastern Link Cable)</h4>
-                    <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 987 km</p>
-                    <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Liberty Latin America (formerly C&W)</p>
-                    <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> TE SubCom</p>
-                    <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> Curaçao</p>
-                    <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Chaguaramas</p>
-                </div>
-                <div class="futuristic-card p-5">
-                    <h4 class="font-bold text-lg mb-2">ECFS (Eastern Caribbean Fibre System)</h4>
-                    <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 1,730 km</p>
-                    <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Cable & Wireless</p>
-                    <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> Xtera Communications</p>
-                    <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> Múltiples islas del Caribe</p>
-                    <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Trinidad</p>
-                </div>
-                <div class="futuristic-card p-5">
-                    <h4 class="font-bold text-lg mb-2">TT-1 (Trinidad-Tobago Submarine Cable)</h4>
-                    <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 48 km</p>
-                    <p class="text-sm mb-2"><i class="fas fa-users mr-2"></i> Alliance Telecommunications, Liberty Latin America (LLA), TSTT</p>
-                    <p class="text-sm mb-2"><i class="fas fa-cogs mr-2"></i> No especificado</p>
-                    <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> Cable doméstico entre Trinidad y Tobago</p>
-                    <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Trinidad, Tobago</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
     
     <!-- Future Projects Section -->
     <section id="future" class="section bg-gradient-to-b from-indigo-900 to-violet-900">
@@ -1294,7 +1304,7 @@
                                 <h4 class="text-xl font-bold">CSN-1 (Carnival Submarine Network-1)</h4>
                             </div>
                             <ul class="space-y-2 pl-16">
-                                <li class="flex items-start">
+                                <li miniseriesclass="flex items-start">
                                     <i class="fas fa-rocket text-purple-300 mt-1 mr-2"></i>
                                     <span>Operativo en 2026</span>
                                 </li>
@@ -1347,12 +1357,16 @@
             document.getElementById('fiber-3d').classList.remove('show-multimode');
             document.getElementById('monomode-info').classList.remove('hidden');
             document.getElementById('multimode-info').classList.add('hidden');
+            this.classList.add('selected');
+            document.getElementById('show-multimode').classList.remove('selected');
         });
         
         document.getElementById('show-multimode').addEventListener('click', function() {
             document.getElementById('fiber-3d').classList.add('show-multimode');
             document.getElementById('monomode-info').classList.add('hidden');
             document.getElementById('multimode-info').classList.remove('hidden');
+            this.classList.add('selected');
+            document.getElementById('show-monomode').classList.remove('selected');
         });
         
         // Mobile menu toggle
