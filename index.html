@@ -60,31 +60,8 @@
             padding: 4rem 2rem;
         }
         
-        .fiber-animation {
-            position: relative;
-            height: 300px;
-            overflow: hidden;
-        }
-        
-        .light-ray {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(to right, transparent, #fde047, transparent);
-            animation: lightTravel 3s linear infinite;
-        }
-        
-        @keyframes lightTravel {
-            0% { transform: translateX(-100%); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateX(100%); opacity: 0; }
-        }
-        
         .ocean-wave {
-            position: absolute;
+            position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
@@ -92,6 +69,7 @@
             background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%2306b6d4'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%230891b2'%3E%3C/path%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%230c4a6e'%3E%3C/path%3E%3C/svg%3E");
             background-size: 1200px 80px;
             animation: wave 12s linear infinite;
+            z-index: -1;
         }
         
         .ocean-wave:nth-child(2) {
@@ -156,6 +134,7 @@
             font-size: 0.9rem;
             text-align: center;
             border-bottom: 1px solid rgba(6, 182, 212, 0.3);
+            z-index: 100;
         }
         
         .fiber-3d-container {
@@ -395,7 +374,7 @@
         }
         
         .futuristic-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(8, 47, 73, 0.7); /* Fondo azul oscuro translúcido */
             border-radius: 20px;
             border: 1px solid rgba(6, 182, 212, 0.2);
             overflow: hidden;
@@ -429,6 +408,14 @@
             justify-content: center;
             color: rgba(255, 255, 255, 0.7);
             font-size: 1.2rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .connector-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .animate-fadeIn {
@@ -449,20 +436,32 @@
             70% { box-shadow: 0 0 0 15px rgba(6, 182, 212, 0); }
             100% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0); }
         }
+        
+        .size-card {
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .size-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .size-card p {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
     </style>
 </head>
 <body class="relative">
     <!-- Author Credits -->
-    <div class="author-credits text-cyan-300">
         <div class="container mx-auto flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-6">
-            <span>José Osorio - C.I: 30.973.057</span>
-            <div class="hidden sm:block">|</div>
-            <div class="flex items-center gap-2">
-                <div class="unefa-logo">U</div>
-                <span>UNEFA - Redes</span>
-            </div>
         </div>
-    </div>
 
     <!-- Ocean waves decoration -->
     <div class="fixed bottom-0 left-0 w-full h-40 z-0">
@@ -471,7 +470,7 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-8 left-0 w-full z-50 bg-opacity-80 backdrop-blur-sm py-4">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-opacity-80 backdrop-blur-sm py-4">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center">
                 <div class="w-10 h-10 rounded-full bg-gradient-to-r from-fiber-om3 to-fiber-om5 flex items-center justify-center">
@@ -483,6 +482,7 @@
                 <a href="#fiber" class="text-cyan-200 hover:text-white transition">Fibra Óptica</a>
                 <a href="#connectors" class="text-cyan-200 hover:text-white transition">Conectores</a>
                 <a href="#submarine" class="text-cyan-200 hover:text-white transition">Cables Submarinos</a>
+                <a href="#sizes" class="text-cyan-200 hover:text-white transition">Cables Destacados</a>
                 <a href="#countries" class="text-cyan-200 hover:text-white transition">Conexiones</a>
                 <a href="#future" class="text-cyan-200 hover:text-white transition">Futuro</a>
             </div>
@@ -504,6 +504,7 @@
                 <li><a href="#fiber" class="block py-2 px-4 bg-blue-900 bg-opacity-30 rounded-lg hover:bg-blue-800">Fibra Óptica</a></li>
                 <li><a href="#connectors" class="block py-2 px-4 bg-blue-900 bg-opacity-30 rounded-lg hover:bg-blue-800">Conectores</a></li>
                 <li><a href="#submarine" class="block py-2 px-4 bg-blue-900 bg-opacity-30 rounded-lg hover:bg-blue-800">Cables Submarinos</a></li>
+                <li><a href="#sizes" class="block py-2 px-4 bg-blue-900 bg-opacity-30 rounded-lg hover:bg-blue-800">Cables Destacados</a></li>
                 <li><a href="#countries" class="block py-2 px-4 bg-blue-900 bg-opacity-30 rounded-lg hover:bg-blue-800">Conexiones por País</a></li>
                 <li><a href="#future" class="block py-2 px-4 bg-blue-900 bg-opacity-30 rounded-lg hover:bg-blue-800">Futuro</a></li>
             </ul>
@@ -596,7 +597,7 @@
                         </button>
                     </div>
                     
-                    <div class="bg-blue-900 bg-opacity-30 p-6 rounded-xl backdrop-blur-sm">
+                    <div class="futuristic-card p-6">
                         <div id="monomode-info">
                             <h3 class="text-xl font-semibold mb-3 text-cyan-300">Fibra Monomodo (SM)</h3>
                             <p class="mb-4">La fibra monomodo tiene un núcleo muy pequeño (8-10 μm) que permite un único modo de propagación de luz. Esto elimina la dispersión modal, permitiendo alcanzar distancias de cientos de kilómetros con tasas de transmisión muy altas.</p>
@@ -682,19 +683,19 @@
                     <div class="futuristic-card p-6">
                         <h3 class="text-2xl font-semibold mb-4 text-cyan-200">Ventajas de la Fibra Óptica</h3>
                         <div class="grid grid-cols-2 gap-4">
-                            <div class="bg-blue-900 bg-opacity-30 p-4 rounded-lg">
+                            <div class="futuristic-card p-4">
                                 <i class="fas fa-bolt text-yellow-400 text-2xl mb-2"></i>
                                 <p>Alto ancho de banda</p>
                             </div>
-                            <div class="bg-blue-900 bg-opacity-30 p-4 rounded-lg">
+                            <div class="futuristic-card p-4">
                                 <i class="fas fa-road text-green-400 text-2xl mb-2"></i>
                                 <p>Larga distancia sin repetidores</p>
                             </div>
-                            <div class="bg-blue-900 bg-opacity-30 p-4 rounded-lg">
+                            <div class="futuristic-card p-4">
                                 <i class="fas fa-shield-alt text-blue-400 text-2xl mb-2"></i>
                                 <p>Inmune a interferencias EM</p>
                             </div>
-                            <div class="bg-blue-900 bg-opacity-30 p-4 rounded-lg">
+                            <div class="futuristic-card p-4">
                                 <i class="fas fa-lock text-red-400 text-2xl mb-2"></i>
                                 <p>Seguridad contra espionaje</p>
                             </div>
@@ -720,7 +721,7 @@
                     <div class="p-6">
                         <div class="text-center mb-4">
                             <div class="image-placeholder mb-3 rounded-lg">
-                                <i class="fas fa-plug text-3xl text-blue-400"></i>
+                                <img src="\img\SC.jpg" alt="SC Connector" class="connector-img">
                             </div>
                             <h3 class="text-xl font-bold">SC</h3>
                             <p class="text-sm text-blue-300">Subscriber Connector</p>
@@ -755,7 +756,7 @@
                     <div class="p-6">
                         <div class="text-center mb-4">
                             <div class="image-placeholder mb-3 rounded-lg">
-                                <i class="fas fa-plug text-3xl text-purple-400"></i>
+                                <img src="\img\LC.jpg" alt="LC Connector" class="connector-img">
                             </div>
                             <h3 class="text-xl font-bold">LC</h3>
                             <p class="text-sm text-purple-300">Lucent Connector</p>
@@ -790,7 +791,7 @@
                     <div class="p-6">
                         <div class="text-center mb-4">
                             <div class="image-placeholder mb-3 rounded-lg">
-                                <i class="fas fa-plug text-3xl text-amber-400"></i>
+                                <img src="\img\FC.png" alt="FC Connector" class="connector-img">
                             </div>
                             <h3 class="text-xl font-bold">FC</h3>
                             <p class="text-sm text-amber-300">Ferrule Connector</p>
@@ -825,7 +826,7 @@
                     <div class="p-6">
                         <div class="text-center mb-4">
                             <div class="image-placeholder mb-3 rounded-lg">
-                                <i class="fas fa-plug text-3xl text-emerald-400"></i>
+                                <img src="\img\St.jpg" alt="ST Connector" class="connector-img">
                             </div>
                             <h3 class="text-xl font-bold">ST</h3>
                             <p class="text-sm text-emerald-300">Straight Tip</p>
@@ -928,33 +929,30 @@
                         </ul>
                     </div>
                     
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="futuristic-card p-4">
-                            <h4 class="font-semibold text-cyan-200 mb-2">Cable más pequeño</h4>
-                            <p class="text-sm">Celtix Connect (131 km) - Irlanda a Reino Unido</p>
-                        </div>
-                        <div class="futuristic-card p-4">
-                            <h4 class="font-semibold text-cyan-200 mb-2">Cable más grande</h4>
-                            <p class="text-sm">2Africa Pearls (45,000 km) - África, Europa, Asia</p>
+                    <div class="futuristic-card p-6">
+                        <h3 class="text-2xl font-semibold mb-6 text-cyan-200">Reparación de Cables Submarinos</h3>
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="image-placeholder rounded-lg">
+                                <img src="img/cablesubmarino.png" alt="Reparación de cables" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <p>Cuando un cable submarino sufre daños, se sigue un proceso complejo de reparación:</p>
+                                <ol class="mt-4 space-y-3 list-decimal list-inside">
+                                    <li>Localización del daño mediante reflectometría</li>
+                                    <li>Despliegue de buque especializado</li>
+                                    <li>Extracción del segmento dañado con robots submarinos</li>
+                                    <li>Sustitución por un nuevo segmento de cable</li>
+                                    <li>Pruebas y restablecimiento del servicio</li>
+                                </ol>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="futuristic-card p-6">
-                    <h3 class="text-2xl font-semibold mb-6 text-cyan-200">Reparación de Cables Submarinos</h3>
-                    <div class="flex flex-col md:flex-row gap-6">
-                        <div class="image-placeholder rounded-lg">
-                            <i class="fas fa-ship text-3xl text-cyan-300"></i>
-                        </div>
-                        <div>
-                            <p>Cuando un cable submarino sufre daños, se sigue un proceso complejo de reparación:</p>
-                            <ol class="mt-4 space-y-3 list-decimal list-inside">
-                                <li>Localización del daño mediante reflectometría</li>
-                                <li>Despliegue de buque especializado</li>
-                                <li>Extracción del segmento dañado con robots submarinos</li>
-                                <li>Sustitución por un nuevo segmento de cable</li>
-                                <li>Pruebas y restablecimiento del servicio</li>
-                            </ol>
+                    <div class="globe-container">
+                        <div class="rotating-globe">
+                            <img src="img/mapa.webp" alt="Globo" class="w-full rounded-full shadow-xl">
                         </div>
                     </div>
                 </div>
@@ -962,8 +960,40 @@
         </div>
     </section>
 
+    <!-- Cable Sizes Section -->
+    <section id="sizes" class="section bg-gradient-to-b from-cyan-900 to-blue-900">
+        <div class="container mx-auto px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4 tech-font">¿Cuál es el cable más largo y más corto?</h2>
+                <p class="max-w-3xl mx-auto text-cyan-100">Comparativa de los cables submarinos extremos</p>
+                <div class="w-24 h-1 bg-cyan-400 mx-auto mt-4"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="futuristic-card size-card">
+                    <div class="icon-container rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center mb-5">
+                        <i class="fas fa-ruler text-white text-4xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-semibold text-cyan-200 mb-5">Cable más pequeño</h4>
+                    <p class="text-xl mb-2">Celtix Connect</p>
+                    <p class="text-lg mb-4">131 km</p>
+                    <p class="text-cyan-200 location">Irlanda a Reino Unido</p>
+                </div>
+                
+                <div class="futuristic-card size-card">
+                    <div class="icon-container rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center mb-6">
+                        <i class="fas fa-globe-americas text-white text-4xl"></i>
+                    </div>
+                    <h4 class="text-2xl font-semibold text-cyan-200 mb-4">Cable más grande</h4>
+                    <p class="text-xl mb-2">2Africa Pearls</p>
+                    <p class="text-lg mb-4">45,000 km</p>
+                    <p class="text-cyan-200 location">África, Europa, Asia</p>
+                </div>
+            </div>
+    </section>
+
     <!-- Country Connections Section -->
-    <section id="countries" class="section bg-gradient-to-b from-cyan-900 to-blue-900">
+    <section id="countries" class="section bg-gradient-to-b from-blue-900 to-indigo-900">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-5xl font-bold mb-4 tech-font">Conexiones en América Latina</h2>
@@ -971,88 +1001,91 @@
                 <div class="w-24 h-1 bg-cyan-400 mx-auto mt-4"></div>
             </div>
             
-            <!-- Interactive Map -->
-            <div class="map-container futuristic-card">
-                <div class="map-base"></div>
-                
-                <!-- Country Points -->
-                <div class="country-highlight" style="top: 40%; left: 28%; width: 70px; height: 70px;" data-country="venezuela"></div>
-                <div class="country-highlight" style="top: 42%; left: 26%; width: 60px; height: 60px;" data-country="colombia"></div>
-                <div class="country-highlight" style="top: 55%; left: 30%; width: 100px; height: 100px;" data-country="brasil"></div>
-                <div class="country-highlight" style="top: 48%; left: 25%; width: 50px; height: 50px;" data-country="guyana"></div>
-                <div class="country-highlight" style="top: 45%; left: 24%; width: 40px; height: 40px;" data-country="trinidad"></div>
-                
-                <!-- Cable Lines -->
-                <div class="cable-line" style="top: 40%; left: 28%; width: 200px; transform: rotate(30deg);"></div>
-                <div class="cable-line" style="top: 42%; left: 26%; width: 180px; transform: rotate(45deg);"></div>
-                <div class="cable-line" style="top: 55%; left: 30%; width: 250px; transform: rotate(20deg);"></div>
-                <div class="cable-line" style="top: 48%; left: 25%; width: 150px; transform: rotate(60deg);"></div>
-                <div class="cable-line" style="top: 45%; left: 24%; width: 120px; transform: rotate(40deg);"></div>
-                
-                <!-- Country Info Boxes -->
-                <div class="country-info" id="venezuela-info" style="top: 30%; left: 40%;">
-                    <h4 class="font-bold text-lg mb-2 flex items-center">
-                        <img src="https://flagcdn.com/w20/ve.png" class="mr-2"> Venezuela
-                    </h4>
-                    <ul class="text-sm space-y-1">
-                        <li>ALBA-1 (1,860 km)</li>
-                        <li>ARCOS-1 (8,400 km)</li>
-                        <li>Atlántica-1 (23,500 km)</li>
-                        <li>AMERICAS-II (8,373 km)</li>
-                    </ul>
+            <!-- Venezuela -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold mb-6 flex items-center text-cyan-200">
+                    <img src="https://flagcdn.com/w40/ve.png" class="mr-3 w-8"> Venezuela
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">ALBA-1</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 1,860 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> Cuba, Jamaica</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> La Guaira</p>
+                    </div>
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">ARCOS-1</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 8,400 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU., México, Caribe</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Punto Fijo</p>
+                    </div>
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">Atlántica-1 / GlobeNet</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 23,500 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU., Brasil, Colombia</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Maiquetía</p>
+                    </div>
                 </div>
-                
-                <div class="country-info" id="colombia-info" style="top: 35%; left: 35%;">
-                    <h4 class="font-bold text-lg mb-2 flex items-center">
-                        <img src="https://flagcdn.com/w20/co.png" class="mr-2"> Colombia
-                    </h4>
-                    <ul class="text-sm space-y-1">
-                        <li>SAm-1 (25,000 km)</li>
-                        <li>AMX-1 (17,800 km)</li>
-                        <li>TAM-1 (7,000 km)</li>
-                        <li>CSN-1 (4,500 km)</li>
-                    </ul>
+            </div>
+            
+            <!-- Colombia -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-semibold mb-6 flex items-center text-cyan-200">
+                    <img src="https://flagcdn.com/w40/co.png" class="mr-3 w-8"> Colombia
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">SAm-1</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 25,000 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU., Brasil, Chile</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Barranquilla</p>
+                    </div>
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">AMX-1</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 17,800 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU., México, Brasil</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Barranquilla, Cartagena</p>
+                    </div>
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">TAM-1 (2025)</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 7,000 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU., Caribe, Centroamérica</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Barranquilla</p>
+                    </div>
                 </div>
-                
-                <div class="country-info" id="brasil-info" style="top: 60%; left: 35%;">
-                    <h4 class="font-bold text-lg mb-2 flex items-center">
-                        <img src="https://flagcdn.com/w20/br.png" class="mr-2"> Brasil
-                    </h4>
-                    <ul class="text-sm space-y-1">
-                        <li>Seabras-1 (10,800 km)</li>
-                        <li>BRUSA (11,000 km)</li>
-                        <li>SAIL (10,800 km)</li>
-                        <li>UNISUR (1,720 km)</li>
-                    </ul>
-                </div>
-                
-                <div class="country-info" id="guyana-info" style="top: 50%; left: 30%;">
-                    <h4 class="font-bold text-lg mb-2 flex items-center">
-                        <img src="https://flagcdn.com/w20/gy.png" class="mr-2"> Guyana
-                    </h4>
-                    <ul class="text-sm space-y-1">
-                        <li>SG-SCS (1,200 km)</li>
-                        <li>Deep Blue One (2,100 km)</li>
-                        <li>X-Link (775 km)</li>
-                    </ul>
-                </div>
-                
-                <div class="country-info" id="trinidad-info" style="top: 48%; left: 28%;">
-                    <h4 class="font-bold text-lg mb-2 flex items-center">
-                        <img src="https://flagcdn.com/w20/tt.png" class="mr-2"> Trinidad y Tobago
-                    </h4>
-                    <ul class="text-sm space-y-1">
-                        <li>EC-1 (987 km)</li>
-                        <li>ECFS (1,730 km)</li>
-                        <li>TT-1 (48 km)</li>
-                    </ul>
+            </div>
+            
+            <!-- Brazil -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-6 flex items-center text-cyan-200">
+                    <img src="https://flagcdn.com/w40/br.png" class="mr-3 w-8"> Brasil
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">Seabras-1</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 10,800 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU.</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Praia Grande</p>
+                    </div>
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">BRUSA</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 11,000 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> EE.UU., Puerto Rico</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Fortaleza, Río de Janeiro</p>
+                    </div>
+                    <div class="futuristic-card p-5">
+                        <h4 class="font-bold text-lg mb-2">SAIL</h4>
+                        <p class="text-sm mb-2"><i class="fas fa-ruler mr-2"></i> 10,800 km</p>
+                        <p class="text-sm mb-2"><i class="fas fa-plug mr-2"></i> Camerún</p>
+                        <p class="text-sm"><i class="fas fa-map-marker-alt mr-2"></i> Praia Grande</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Future Projects Section -->
-    <section id="future" class="section bg-gradient-to-b from-blue-900 to-indigo-900">
+    <section id="future" class="section bg-gradient-to-b from-indigo-900 to-violet-900">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-5xl font-bold mb-4 tech-font">El Futuro de las Redes Submarinas</h2>
@@ -1166,21 +1199,24 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-ocean-deep py-12 relative z-10">
-        <div class="container mx-auto px-4 text-center">
+    <footer class="py-12 relative z-10" style="background: linear-gradient(to bottom, #4c1d95, #000000 80%);">
+        <div class="absolute inset-0 w-full h-full pointer-events-none z-0 flex justify-center items-center">
+            <img src="img/UNEFA_Letra.png" alt="UNEFA Fondo" class="w-full h-full object-contain opacity-20" style="mix-blend-mode: lighten;">
+        </div>
+        <div class="container mx-auto px-4 text-center relative z-10">
             <div class="flex justify-center mb-6">
-                <div class="w-16 h-16 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center">
+                <div class="w-16 h-16 rounded-full bg-transparent flex items-center justify-center border-2 border-cyan-400">
                     <i class="fas fa-satellite text-white text-2xl"></i>
                 </div>
             </div>
-            <h3 class="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-blue-300">Redes Submarinas</h3>
-            <p class="max-w-2xl mx-auto text-cyan-100 mb-8">La infraestructura invisible que conecta América Latina y el mundo entero</p>
+            <h3 class="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-blue-300">Fibra Óptica y  Redes Submarinas</h3>
+            <p class="max-w-2xl mx-auto text-cyan-100 mb-8">ACTIVIDAD 3 Corte 2</p>
             <div class="flex flex-col md:flex-row justify-center items-center gap-4">
                 <p class="text-sm text-cyan-200">José Osorio - C.I: 30.973.057</p>
-                <p class="text-sm text-cyan-200">© 2023 - Todos los derechos reservados</p>
+                <p class="text-sm text-cyan-200">REDES DEL COMPUTADOR</p>
                 <div class="flex items-center">
-                    <div class="unefa-logo">U</div>
-                    <span class="ml-2 text-sm text-cyan-200">UNEFA - Redes</span>
+                    <img src="img/unefalogo.svg" alt="UNEFA Logo" class="unefa-logo object-cover" style="background: transparent;">
+                    <span class="ml-2 text-sm text-cyan-200">Universidad Nacional Experimental Politécnica de la Fuerza Armada</span>
                 </div>
             </div>
         </div>
@@ -1207,32 +1243,6 @@
         
         document.querySelector('.close-menu').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.remove('active');
-        });
-        
-        // Country highlights
-        const countryHighlights = document.querySelectorAll('.country-highlight');
-        countryHighlights.forEach(highlight => {
-            highlight.addEventListener('click', function() {
-                const country = this.getAttribute('data-country');
-                const infoBox = document.getElementById(`${country}-info`);
-                
-                // Hide all info boxes first
-                document.querySelectorAll('.country-info').forEach(box => {
-                    box.classList.remove('active');
-                });
-                
-                // Show the selected one
-                infoBox.classList.add('active');
-            });
-        });
-        
-        // Click outside to close country info
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.country-highlight') && !e.target.closest('.country-info')) {
-                document.querySelectorAll('.country-info').forEach(box => {
-                    box.classList.remove('active');
-                });
-            }
         });
         
         // Smooth scrolling for navigation links
